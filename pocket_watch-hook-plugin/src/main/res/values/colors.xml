@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="main_blue">#169CD9</color>
+    <color name="main_blue_pressed">#0082BD</color>
+    <color name="light_blue">#EBF6F5</color>
+    <color name="light_blue_pressed">#CBE7F4</color>
+    <color name="text_button_background">#FFF</color>
+    <color name="error_color">#FF1F00</color>
+    <color name="edit_text_background_color">#F2F2F2</color>
+    <color name="main_green">#EFFFD4</color>
+    <color name="main_green_pressed">#D9F8A5</color>
+</resources>

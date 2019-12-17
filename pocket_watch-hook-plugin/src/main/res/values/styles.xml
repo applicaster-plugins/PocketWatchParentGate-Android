@@ -1,0 +1,70 @@
+<resources>
+    <style name="PocketWatchCoppaHookTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">#1f2021</item>
+        <item name="colorPrimaryDark">#000</item>
+        <item name="colorAccent">#f7bc47</item>
+    </style>
+
+    <style name="dialog_title">
+        <item name="android:textColor">@color/main_blue</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:fontFamily">@font/metropolis_bold_font</item>
+    </style>
+
+    <style name="dialog_grey_description">
+        <item name="android:textColor">#404040</item>
+        <item name="android:textSize">16dp</item>
+        <item name="android:fontFamily">@font/metropolis_regular_font</item>
+    </style>
+
+    <style name="dialog_problem">
+        <item name="android:textColor">#000</item>
+        <item name="android:textSize">16dp</item>
+        <item name="android:fontFamily">@font/metropolis_medium_font</item>
+    </style>
+
+    <style name="secondary_button">
+        <item name="android:background">@drawable/secondary_btn_background</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:textColor">@color/main_blue</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily">@font/metropolis_medium_font</item>
+    </style>
+
+    <style name="main_button">
+        <item name="android:background">@drawable/main_btn_background</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:textColor">#fff</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily">@font/metropolis_medium_font</item>
+    </style>
+
+    <style name="white_button">
+        <item name="android:background">@color/text_button_background</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:textColor">@color/text_button_text_color</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily">@font/metropolis_medium_font</item>
+    </style>
+
+    <style name="success_button">
+        <item name="android:background">@drawable/success_btn_background</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:textColor">#2F3234</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily">@font/metropolis_medium_font</item>
+    </style>
+
+    <style name="error_text">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:textSize">16dp</item>
+        <item name="android:textColor">@color/error_color</item>
+    </style>
+
+
+    <style name="answer_theme">
+        <item name="android:colorControlActivated">@color/main_blue</item>
+    </style>
+</resources>

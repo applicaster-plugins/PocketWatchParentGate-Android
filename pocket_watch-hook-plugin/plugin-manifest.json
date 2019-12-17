@@ -1,0 +1,37 @@
+{
+  "api": {
+    "require_startup_execution": true,
+    "class_name": "com.applicaster.plugin.coppa.pocketwatch.PocketWatchCoppaHookContract",
+    "proguard_rules": "-keep public class com.applicaster.plugin.coppa.pocketwatch.PocketWatchCoppaHookContract {\n    public <fields>;\n    public <methods>;\n}\n"
+  },
+  "dependency_repository_url": [
+    {
+      "url": "https://dl.bintray.com/applicaster-ltd/maven_plugins/"
+    }
+  ],
+  "platform": "android",
+  "author_name": "Vladyslav Sumtsov",
+  "author_email": "vlad.sumtsov@corewillsoft.com",
+  "name": "PocketWatchCoppaHook",
+  "description": "Zapp Android Plugin for Pocket Watch coppa verification hook",
+  "type": "general",
+  "identifier": "PocketWatchCoppaHook",
+  "screen": true,
+  "ui_builder_support": true,
+  "dependency_name": "com.applicaster:PocketWatchCoppaHook-Android",
+  "manifest_version": "0.1.0",
+  "dependency_version": "0.1.+",
+  "whitelisted_account_ids": [
+    "5d642ecd161adb0008ea8e50"
+  ],
+  "min_zapp_sdk": "11.1.4",
+  "deprecated_since_zapp_sdk": "",
+  "unsupported_since_zapp_sdk": "",
+  "react_native": false,
+  "custom_configuration_fields": [
+    {
+      "type": "text",
+      "key": "masterSecret"
+    }
+  ]
+}

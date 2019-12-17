@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="dialog_padding_horizontal">36dp</dimen>
+    <dimen name="dialog_padding_top">48dp</dimen>
+    <dimen name="dialog_margin">38dp</dimen>
+    <dimen name="objects_radius">6.5dp</dimen>
+    <dimen name="dialog_padding_bottom">36dp</dimen>
+    <dimen name="background_radius">16dp</dimen>
+</resources>

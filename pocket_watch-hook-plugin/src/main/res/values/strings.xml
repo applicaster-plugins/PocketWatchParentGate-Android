@@ -1,0 +1,20 @@
+<resources>
+    <string name="login_activity_title">Parent Gate Hook</string>
+    <string name="parent_gate_title">Don’t miss out…</string>
+    <string name="parent_gate_description">Get notified when new shows\nare available from your best\nvideo friends. To continue,\nplease answer the following:</string>
+    <string name="no_thanks">No, thanks</string>
+    <string name="submit">Submit</string>
+    <string name="warning">Warning</string>
+    <string name="are_you_sure_you_want_turnoff">Are you sure you want to turn off notifications?</string>
+    <string name="enable">Enable</string>
+    <string name="ok">OK</string>
+    <string name="get_notified_about_new_shows">Get notified  about new shows?</string>
+    <string name="yes_please">Yes, please</string>
+    <string name="terms_description"><![CDATA[We’ll collect a device ID to enable push notifications and improve your app experience. You can turn off notifications anytime under app > settings.]]></string>
+    <string name="view_privacy_policy">View Privacy Policy</string>
+    <string name="please_try_again">Please try again</string>
+    <string name="disable_notifications_manually">Please, disable notifications manually</string>
+    <string name="notifications_enabled">Notifications enabled!</string>
+    <string name="success_message">You can now get on\nwith the fun!</string>
+
+</resources>

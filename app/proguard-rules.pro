@@ -1,0 +1,1 @@
+-keep class com.applicaster.plugin.coppa.pocket_watch.* { *; }

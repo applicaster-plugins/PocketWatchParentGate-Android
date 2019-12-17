@@ -1,0 +1,53 @@
+[
+  {
+    "plugin": {
+      "api": {
+        "class_name": "com.applicaster.plugin.coppa.pocketwatch.PocketWatchCoppaHookContract",
+        "require_startup_execution": true
+      },
+      "type": "general",
+      "platform": "android",
+      "identifier": "PocketWatchCoppaHookContract",
+      "name": "PocketWatchCoppaHookContract",
+      "description": "Pocket Watch coppa hook plugin",
+      "author_name": "Vladyslav Sumtsov",
+      "author_email": "vlad.sumtsov@corewillsoft.com",
+      "min_zapp_sdk": "7.0.0",
+      "dependency_name": "com.applicaster:pockewatch-coppa_hook-plugin",
+      "manifest_version": "0.1.0",
+      "dependency_version": "0.1.+",
+      "whitelisted_account_ids": [],
+      "dependency_repository_url": [],
+      "deprecated_since_zapp_sdk": "",
+      "unsupported_since_zapp_sdk": ""
+    },
+    "configuration_json": {
+      "masterSecret": "masterSecret"
+    }
+  },
+  {
+    "plugin": {
+      "api": {
+        "class_name": "com.applicaster.extendedwebview.WebViewPluginScreen",
+        "require_startup_execution": false
+      },
+      "type": "general",
+      "platform": "android",
+      "identifier": "ExtendedWebView",
+      "name": "ExtendedWebView",
+      "description": "",
+      "author_name": "",
+      "author_email": "",
+      "min_zapp_sdk": "7.0.0",
+      "dependency_name": "com.applicaster:ExtendedWebView",
+      "manifest_version": "0.0.1",
+      "dependency_version": "0.0.1",
+      "whitelisted_account_ids": [],
+      "dependency_repository_url": [],
+      "deprecated_since_zapp_sdk": "",
+      "unsupported_since_zapp_sdk": ""
+    },
+    "configuration_json": {
+    }
+  }
+]

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/dialog_background"
+    android:gravity="center"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/dialog_padding_horizontal"
+    android:paddingTop="@dimen/dialog_padding_top"
+    android:paddingRight="@dimen/dialog_padding_horizontal"
+    android:paddingBottom="@dimen/dialog_padding_bottom">
+
+    <TextView
+        style="@style/dialog_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/warning" />
+
+
+    <TextView
+        style="@style/dialog_grey_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:gravity="center_horizontal"
+        android:text="@string/are_you_sure_you_want_turnoff" />
+
+    <Button
+        android:layout_marginTop="36dp"
+        android:id="@+id/ok"
+        style="@style/main_button"
+        android:layout_width="match_parent"
+        android:layout_height="51dp"
+        android:text="@string/ok" />
+
+    <Button
+        android:layout_marginTop="2dp"
+        android:id="@+id/enable"
+        style="@style/white_button"
+        android:layout_width="match_parent"
+        android:layout_height="51dp"
+        android:text="@string/enable" />
+</LinearLayout>
