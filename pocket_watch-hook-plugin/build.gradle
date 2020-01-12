@@ -42,7 +42,7 @@ dependencies {
     api 'com.android.support.constraint:constraint-layout:1.1.3'
     // util
     api 'com.jakewharton.timber:timber:4.7.1'
-    implementation 'com.jakewharton.rxbinding2:rxbinding-appcompat-v7:2.0.0'
+    api 'com.jakewharton.rxbinding2:rxbinding-appcompat-v7:2.0.0'
 
     // network
     implementation('com.squareup.okhttp3:logging-interceptor:3.8.1') {
@@ -52,7 +52,7 @@ dependencies {
     api 'com.squareup.retrofit2:retrofit:2.5.0'
     api 'com.squareup.retrofit2:adapter-rxjava2:2.5.0'
     api 'com.squareup.retrofit2:converter-gson:2.5.0'
-    api 'com.urbanairship.android:urbanairship-fcm:9.3.1'
+    compileOnly 'com.urbanairship.android:urbanairship-fcm:9.3.1'
     implementation 'com.bluelinelabs:conductor:2.1.5'
     implementation 'com.pawegio.kandroid:kandroid:0.8.4@aar'
 }
