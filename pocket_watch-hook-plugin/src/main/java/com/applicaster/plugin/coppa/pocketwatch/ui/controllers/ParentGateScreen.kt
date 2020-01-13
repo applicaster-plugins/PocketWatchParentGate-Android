@@ -1,4 +1,4 @@
-package com.applicaster.plugin.coppa.pocketwatch.controllers
+package com.applicaster.plugin.coppa.pocketwatch.ui.controllers
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater

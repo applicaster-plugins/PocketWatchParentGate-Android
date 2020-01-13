@@ -15,6 +15,14 @@
         android:text="Execute on startup" />
 
     <Button
+        android:id="@+id/startInAppSettings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:minWidth="200dp"
+        android:text="Start settings activity" />
+
+    <Button
         android:id="@+id/notificationSettings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
