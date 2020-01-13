@@ -1,16 +1,16 @@
-package com.applicaster.plugin.coppa.pocketwatch.controllers
+package com.applicaster.plugin.coppa.pocketwatch.ui.controllers
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.applicaster.plugin.coppa.pocketwatch.R
+import com.applicaster.plugin.coppa.pocketwatch.ui.hide
+import com.applicaster.plugin.coppa.pocketwatch.ui.show
 import com.bluelinelabs.conductor.Controller
 import com.google.gson.GsonBuilder
 import com.google.gson.annotations.SerializedName
 import com.google.gson.reflect.TypeToken
-import com.pawegio.kandroid.hide
-import com.pawegio.kandroid.show
 import kotlinx.android.synthetic.main.initial_screen.view.*
 import java.io.InputStreamReader
 

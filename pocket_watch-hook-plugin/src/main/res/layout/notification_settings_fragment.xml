@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="25dp"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:fontFamily="@font/metropolis_bold_font"
+        android:text="@string/in_app_settings_title"
+        android:textSize="@dimen/title_text_size" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingStart="32dp"
+        android:paddingEnd="32dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="@string/allow_notifications"
+            android:textSize="@dimen/text_size" />
+
+        <android.support.v7.widget.SwitchCompat
+            android:id="@+id/notificationsSwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:checked="false"
+            android:gravity="center_vertical"
+            android:textOff="@string/off_switcher"
+            android:textOn="@string/on_switcher"
+            app:showText="false"
+            app:theme="@style/SwitchButtonTheme" />
+    </RelativeLayout>
+</LinearLayout>

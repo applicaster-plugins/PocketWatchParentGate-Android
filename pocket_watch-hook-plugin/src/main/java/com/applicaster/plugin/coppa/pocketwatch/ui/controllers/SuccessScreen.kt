@@ -1,4 +1,4 @@
-package com.applicaster.plugin.coppa.pocketwatch.controllers
+package com.applicaster.plugin.coppa.pocketwatch.ui.controllers
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
