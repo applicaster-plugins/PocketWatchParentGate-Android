@@ -6,11 +6,15 @@
 
     <application>
         <activity
-            android:name="com.applicaster.plugin.coppa.pocketwatch.ParentGateActivity"
+            android:name="com.applicaster.plugin.coppa.pocketwatch.ui.ParentGateActivity"
             android:theme="@style/PocketWatchCoppaHookTheme"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name="com.applicaster.plugin.coppa.pocketwatch.controllers.PrivacyPolicyActivity"
+            android:name="com.applicaster.plugin.coppa.pocketwatch.ui.PrivacyPolicyActivity"
+            android:theme="@style/PocketWatchCoppaHookTheme"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name="com.applicaster.plugin.coppa.pocketwatch.ui.NotificationSettingsActivity"
             android:theme="@style/PocketWatchCoppaHookTheme"
             android:windowSoftInputMode="adjustResize" />
     </application>

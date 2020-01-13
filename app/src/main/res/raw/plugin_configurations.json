@@ -14,7 +14,7 @@
       "author_email": "vlad.sumtsov@corewillsoft.com",
       "min_zapp_sdk": "7.0.0",
       "dependency_name": "com.applicaster:pockewatch-coppa_hook-plugin",
-      "manifest_version": "0.1.2",
+      "manifest_version": "0.1.4",
       "dependency_version": "0.1.+",
       "whitelisted_account_ids": [],
       "dependency_repository_url": [],

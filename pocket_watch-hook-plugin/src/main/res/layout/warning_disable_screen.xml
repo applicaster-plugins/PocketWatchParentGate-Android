@@ -33,7 +33,7 @@
         android:id="@+id/ok"
         style="@style/main_button"
         android:layout_width="match_parent"
-        android:layout_height="51dp"
+        android:layout_height="@dimen/button_height"
         android:text="@string/ok" />
 
     <Button
@@ -41,6 +41,6 @@
         android:id="@+id/enable"
         style="@style/white_button"
         android:layout_width="match_parent"
-        android:layout_height="51dp"
+        android:layout_height="@dimen/button_height"
         android:text="@string/enable" />
 </LinearLayout>

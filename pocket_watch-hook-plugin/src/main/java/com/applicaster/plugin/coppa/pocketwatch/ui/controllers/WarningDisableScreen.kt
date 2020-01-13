@@ -1,4 +1,4 @@
-package com.applicaster.plugin.coppa.pocketwatch.controllers
+package com.applicaster.plugin.coppa.pocketwatch.ui.controllers
 
 import android.app.Activity
 import android.support.v4.app.NotificationManagerCompat
@@ -25,9 +25,25 @@ class WarningDisableScreen : Controller() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup) =
         inflater.inflate(R.layout.warning_disable_screen, container, false).apply {
             ok.setOnClickListener {
-                context.openAppNotificationSettings()
-                Toast.makeText(context, R.string.disable_notifications_manually, Toast.LENGTH_LONG).show()
+                val notificationManager = NotificationManagerCompat.from(context)
+                if (notificationManager.areNotificationsEnabled()) {
+                    context.openAppNotificationSettings()
+                    Toast.makeText(
+                        context,
+                        R.string.disable_notifications_manually,
+                        Toast.LENGTH_LONG
+                    ).show()
+                } else {
+                    activity?.sendBroadcast(PocketWatchCoppaHookContract.NOTIFICATIONS_DISABLED)
+                    activity?.finish()
+                }
             }
-            enable.setOnClickListener { router.pop() }
+            enable.setOnClickListener {
+                if (router.backstackSize > 1) {
+                    router.pop()
+                } else {
+                    (context as Activity).finish()
+                }
+            }
         }
 }
