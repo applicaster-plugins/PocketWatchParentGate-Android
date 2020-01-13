@@ -1,4 +1,4 @@
-package com.applicaster.plugin.coppa.pocketwatch.controllers
+package com.applicaster.plugin.coppa.pocketwatch.ui
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity

@@ -3,8 +3,9 @@ package com.applicaster.plugin.coppa.pocket_watch.sample
 import android.os.Bundle
 import android.support.v4.app.FragmentActivity
 import android.widget.Toast
-import com.applicaster.plugin.coppa.pocketwatch.controllers.openAppNotificationSettings
+import com.applicaster.plugin.coppa.pocketwatch.ui.controllers.openAppNotificationSettings
 import com.applicaster.plugin_manager.PluginManager
+import com.applicaster.plugin_manager.screen.PluginScreen
 import kotlinx.android.synthetic.main.activity_main.*
 import timber.log.Timber
 
@@ -28,5 +29,9 @@ class MainActivity : FragmentActivity() {
             }
         }
         notificationSettings.setOnClickListener { openAppNotificationSettings() }
+
+        startInAppSettings.setOnClickListener {
+            (hookPlugin as PluginScreen).present(this, null, null, true)
+        }
     }
 }
