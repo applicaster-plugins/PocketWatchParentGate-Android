@@ -1,8 +1,7 @@
 package com.applicaster.plugin.coppa.pocketwatch.data.service
 
-import android.util.Base64
+//import com.urbanairship.UAirship
 import com.applicaster.plugin.coppa.pocketwatch.data.service.api.UrbanAirshipAPI
-import com.urbanairship.UAirship
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -21,14 +20,14 @@ class ApiFactoryImpl(private val masterSecret: String) : ApiFactory {
     }
 
     private val httpClient by lazy {
-        var authHeader = ""
-        try {
-            authHeader = UAirship.shared().airshipConfigOptions.run {
-                Base64.encodeToString("$appKey:$masterSecret".toByteArray(), Base64.DEFAULT)
-            }
-        } catch (e: IllegalStateException) {
-            Timber.i(e, "No Urbanairship initialized")
-        }
+//        var authHeader = ""
+//        try {
+//            authHeader = UAirship.shared().airshipConfigOptions.run {
+//                Base64.encodeToString("$appKey:$masterSecret".toByteArray(), Base64.DEFAULT)
+//            }
+//        } catch (e: IllegalStateException) {
+//            Timber.i(e, "No Urbanairship initialized")
+//        }
 
         OkHttpClient.Builder()
             .addInterceptor {
@@ -36,7 +35,7 @@ class ApiFactoryImpl(private val masterSecret: String) : ApiFactory {
                 val request = original.newBuilder()
                     .header("Accept", "application/vnd.urbanairship+json; version=3;")
                     .header("Content-Type", "application/json")
-                    .header("Authorization", "Basic $authHeader".trim())
+//                    .header("Authorization", "Basic $authHeader".trim())
                     .method(original.method(), original.body())
                     .build()
 

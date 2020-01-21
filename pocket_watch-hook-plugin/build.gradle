@@ -51,7 +51,7 @@ dependencies {
     api 'com.squareup.retrofit2:retrofit:2.5.0'
     api 'com.squareup.retrofit2:adapter-rxjava2:2.5.0'
     api 'com.squareup.retrofit2:converter-gson:2.5.0'
-    compileOnly 'com.urbanairship.android:urbanairship-fcm:9.3.1'
+//    compileOnly 'com.urbanairship.android:urbanairship-fcm:9.3.1'
     api 'com.bluelinelabs:conductor:2.1.5'
 }
 

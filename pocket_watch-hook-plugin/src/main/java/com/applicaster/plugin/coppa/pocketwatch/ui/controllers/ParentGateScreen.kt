@@ -14,7 +14,6 @@ import com.google.gson.reflect.TypeToken
 import kotlinx.android.synthetic.main.initial_screen.view.*
 import java.io.InputStreamReader
 
-
 class ParentGateScreen : Controller() {
 
     private lateinit var problems: List<Problem>
