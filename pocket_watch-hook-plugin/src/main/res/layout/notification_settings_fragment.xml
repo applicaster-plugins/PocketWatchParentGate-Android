@@ -27,6 +27,7 @@
             android:layout_height="match_parent"
             android:gravity="center_vertical"
             android:text="@string/allow_notifications"
+            android:textColor="@color/black"
             android:textSize="@dimen/text_size" />
 
         <android.support.v7.widget.SwitchCompat
