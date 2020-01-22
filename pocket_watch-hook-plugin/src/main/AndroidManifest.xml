@@ -5,6 +5,9 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application>
+        <meta-data android:name="firebase_messaging_auto_init_enabled"
+            android:value="false" />
+
         <activity
             android:name="com.applicaster.plugin.coppa.pocketwatch.ui.ParentGateActivity"
             android:theme="@style/PocketWatchCoppaHookTheme"

@@ -4,12 +4,12 @@ import com.google.firebase.iid.FirebaseInstanceId
 import io.reactivex.Completable
 import io.reactivex.schedulers.Schedulers
 
-interface UrbanAirshipService {
+interface PushService {
     fun unsubscribePush(): Completable
     fun subscribePush(): Completable
 }
 
-class UrbanAirshipServiceImpl : UrbanAirshipService {
+class FirebasePushService : PushService {
 
     override fun unsubscribePush(): Completable {
         return Completable.create {
@@ -21,7 +21,10 @@ class UrbanAirshipServiceImpl : UrbanAirshipService {
 
     override fun subscribePush(): Completable {
         return Completable.create {
-            FirebaseInstanceId.getInstance().token
+            var token = FirebaseInstanceId.getInstance().token
+            while(token == null) {
+                token = FirebaseInstanceId.getInstance().token
+            }
             it.onComplete()
         }
             .subscribeOn(Schedulers.io())

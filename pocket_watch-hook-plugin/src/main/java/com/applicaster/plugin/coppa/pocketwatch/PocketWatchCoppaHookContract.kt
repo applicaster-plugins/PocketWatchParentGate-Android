@@ -5,7 +5,7 @@ import android.content.Context
 import android.support.v4.app.Fragment
 import android.support.v4.app.NotificationManagerCompat
 import com.applicaster.plugin.coppa.pocketwatch.data.service.AccountDataProviderImpl
-import com.applicaster.plugin.coppa.pocketwatch.data.service.UrbanAirshipServiceImpl
+import com.applicaster.plugin.coppa.pocketwatch.data.service.FirebasePushService
 import com.applicaster.plugin.coppa.pocketwatch.data.service.util.registerLocalBroadcast
 import com.applicaster.plugin.coppa.pocketwatch.ui.NotificationSettingsActivity
 import com.applicaster.plugin.coppa.pocketwatch.ui.NotificationSettingsFragment
@@ -23,7 +23,7 @@ class PocketWatchCoppaHookContract : ApplicationLoaderHookUpI, PluginScreen {
 
     //    private var masterSecret: String? = null
 //    private val apiFactory by lazy { ApiFactoryImpl(masterSecret!!) }
-    private val airshipService by lazy { UrbanAirshipServiceImpl() }
+    private val firebasePushService by lazy { FirebasePushService() }
     private val accountDataProvider by lazy { AccountDataProviderImpl() }
 
     companion object {
@@ -43,10 +43,10 @@ class PocketWatchCoppaHookContract : ApplicationLoaderHookUpI, PluginScreen {
     ) {
         context?.registerLocalBroadcast(ALL_CHECKS_PASSED) {
             accountDataProvider.parentGatePassed = true
-            airshipService.subscribePush().subscribe()
+            firebasePushService.subscribePush().subscribe()
         }
         context?.registerLocalBroadcast(NOTIFICATIONS_DISABLED) {
-            airshipService.unsubscribePush().subscribe()
+            firebasePushService.unsubscribePush().subscribe()
         }
         if (isActivity) {
             NotificationSettingsActivity.launch(context!!)
@@ -71,7 +71,7 @@ class PocketWatchCoppaHookContract : ApplicationLoaderHookUpI, PluginScreen {
     override fun executeOnApplicationReady(context: Context, listener: HookListener) {
         Timber.d("executeOnApplicationReady")
         if (!NotificationManagerCompat.from(context).areNotificationsEnabled()) {
-            airshipService.unsubscribePush()
+            firebasePushService.unsubscribePush()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ listener.onHookFinished() }, {
                     Timber.i(it)
@@ -83,7 +83,7 @@ class PocketWatchCoppaHookContract : ApplicationLoaderHookUpI, PluginScreen {
         } else {
             context.registerLocalBroadcast(ALL_CHECKS_PASSED) {
                 accountDataProvider.parentGatePassed = true
-                airshipService.subscribePush()
+                firebasePushService.subscribePush()
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ listener.onHookFinished() }, {
                         Timber.i(it)
@@ -92,7 +92,7 @@ class PocketWatchCoppaHookContract : ApplicationLoaderHookUpI, PluginScreen {
             }
             context.registerLocalBroadcast(NOTIFICATIONS_DISABLED) {
                 accountDataProvider.parentGatePassed = false
-                airshipService.unsubscribePush()
+                firebasePushService.unsubscribePush()
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ listener.onHookFinished() }, {
                         Timber.i(it)
