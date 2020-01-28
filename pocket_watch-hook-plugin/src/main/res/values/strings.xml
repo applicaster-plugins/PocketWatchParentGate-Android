@@ -4,8 +4,7 @@
     <string name="parent_gate_description">Get notified when new shows\nare available from your best\nvideo friends. To continue,\nplease answer the following:</string>
     <string name="no_thanks">No, thanks</string>
     <string name="submit">Submit</string>
-    <string name="warning">Warning</string>
-    <string name="are_you_sure_you_want_turnoff">Are you sure you want to turn off notifications?</string>
+    <string name="are_you_sure">Are you sure?</string>
     <string name="enable">Enable</string>
     <string name="ok">OK</string>
     <string name="get_notified_about_new_shows">Get notified  about new shows?</string>
@@ -21,5 +20,7 @@
     <string name="on_switcher">ON</string>
     <string name="allow_notifications">Allow notifications</string>
     <string name="in_app_settings_title">CONTROL NOTIFICATIONS</string>
+    <string name="yes">Yes</string>
+    <string name="go_back">Go Back</string>
 
 </resources>
