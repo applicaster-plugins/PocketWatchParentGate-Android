@@ -105,6 +105,6 @@ class PocketWatchCoppaHookContract : ApplicationLoaderHookUpI, PluginScreen {
 
     override fun setPluginConfigurationParams(params: MutableMap<Any?, Any?>) {
         Timber.d("Plugin params: $params")
-//        this.masterSecret = params["masterSecret"] as? String
+        accountDataProvider.termsUrl = params["terms_url"] as String
     }
 }
