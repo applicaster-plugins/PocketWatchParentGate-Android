@@ -1,23 +1,8 @@
 [
-  {"question":"What is eight times seven?", "answer":"56"},
-  {"question":"What is eight times eight?", "answer":"64"},
-  {"question":"What is eight times nine?", "answer":"72"},
-  {"question":"What is eight times ten?", "answer":"80"},
-  {"question":"What is eight times eleven?", "answer":"88"},
-  {"question":"What is eight times twelve?", "answer":"96"},
-  {"question":"What is nine times eight?", "answer":"72"},
-  {"question":"What is nine times nine?", "answer":"81"},
+  {"question":"What is four times two?", "answer":"8"},
+  {"question":"What is two times five?", "answer":"10"},
+  {"question":"What is ten times three?", "answer":"30"},
+  {"question":"What is three times two?", "answer":"6"},
   {"question":"What is nine times ten?", "answer":"90"},
-  {"question":"What is nine times eleven?", "answer":"99"},
-  {"question":"What is nine times twelve?", "answer":"108"},
-  {"question":"What is ten times eight?", "answer":"80"},
-  {"question":"What is ten times nine?", "answer":"90"},
-  {"question":"What is ten times ten?", "answer":"100"},
-  {"question":"What is ten times eleven?", "answer":"110"},
-  {"question":"What is ten times twelve?", "answer":"120"},
-  {"question":"What is eleven times seven?", "answer":"77"},
-  {"question":"What is eleven times eight?", "answer":"88"},
-  {"question":"What is eleven times nine?", "answer":"99"},
-  {"question":"What is eleven times ten?", "answer":"110"},
-  {"question":"What is eleven times six?", "answer":"66"}
+  {"question":"What is eight times eleven?", "answer":"88"}
 ]
