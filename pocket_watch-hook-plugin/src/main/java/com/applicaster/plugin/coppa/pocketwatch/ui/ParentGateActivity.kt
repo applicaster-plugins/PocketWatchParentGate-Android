@@ -3,7 +3,7 @@ package com.applicaster.plugin.coppa.pocketwatch.ui
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import com.applicaster.plugin.coppa.pocketwatch.R
 import com.applicaster.plugin.coppa.pocketwatch.ui.controllers.ParentGateScreen
 import com.applicaster.plugin.coppa.pocketwatch.ui.controllers.WarningDisableScreen

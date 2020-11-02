@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/PocketWatchParentGate-Android.iml" filepath="$PROJECT_DIR$/PocketWatchParentGate-Android.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/pocket_watch-hook-plugin/pocket_watch-hook-plugin.iml" filepath="$PROJECT_DIR$/pocket_watch-hook-plugin/pocket_watch-hook-plugin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/PocketWatchParentGate-Android.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/PocketWatchParentGate-Android.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/pocket_watch-hook-plugin/PocketWatchParentGate-Android.pocket_watch-hook-plugin.iml" filepath="$PROJECT_DIR$/.idea/modules/pocket_watch-hook-plugin/PocketWatchParentGate-Android.pocket_watch-hook-plugin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/pocket_watch.PocketWatchParentGate-Android.iml" filepath="$PROJECT_DIR$/.idea/modules/pocket_watch.PocketWatchParentGate-Android.iml" />
     </modules>
   </component>
 </project>

@@ -1,13 +1,13 @@
 buildscript {
-  ext.kotlin_version = '1.3.31'
-  ext.applicaster_version = '4.0.+'
+  ext.kotlin_version = '1.3.50'
+  ext.applicaster_version = '5.+'
 
   repositories {
     google()
     jcenter()
   }
   dependencies {
-    classpath 'com.android.tools.build:gradle:3.4.1'
+    classpath 'com.android.tools.build:gradle:4.1.0'
     classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     classpath 'digital.wup:android-maven-publish:3.6.2'
     classpath "org.jetbrains.dokka:dokka-android-gradle-plugin:0.9.18"

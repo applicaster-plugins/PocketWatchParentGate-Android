@@ -1,9 +1,10 @@
 package com.applicaster.plugin.coppa.pocketwatch.data.service
 
-import com.google.firebase.iid.FirebaseInstanceId
+import com.google.firebase.FirebaseApp
+import com.google.firebase.installations.FirebaseInstallations
+import com.google.firebase.messaging.FirebaseMessaging
 import io.reactivex.Completable
 import io.reactivex.schedulers.Schedulers
-import timber.log.Timber
 
 interface PushService {
     fun unsubscribePush(): Completable
@@ -11,25 +12,55 @@ interface PushService {
 }
 
 class FirebasePushService : PushService {
+    private val firebaseMessaging = lazy {
+        FirebaseMessaging.getInstance()
+    }
+
+    private val firebaseInstallations = lazy { FirebaseInstallations.getInstance() }
 
     override fun unsubscribePush(): Completable {
-        return Completable.create {
-            FirebaseInstanceId.getInstance().deleteInstanceId()
-            Timber.d("delete InstanceID request initiated to the backend")
-            it.onComplete()
+        return Completable.create { emitter ->
+            if (isFirebaseAppInitialized().not()) {
+                emitter.onComplete()
+                return@create
+            }
+            firebaseInstallations.value.delete().apply {
+                addOnSuccessListener {
+                    firebaseMessaging.value.deleteToken().apply {
+                        addOnSuccessListener { emitter.onComplete() }
+                        addOnFailureListener { emitter.tryOnError(it) }
+                    }
+                }
+                addOnFailureListener { emitter.tryOnError(it) }
+            }
         }
             .subscribeOn(Schedulers.io())
     }
 
     override fun subscribePush(): Completable {
-        return Completable.create {
-            var token = FirebaseInstanceId.getInstance().token
-            while(token == null) {
-                token = FirebaseInstanceId.getInstance().token
+        return Completable.create { emitter ->
+            if (isFirebaseAppInitialized().not()) {
+                emitter.onComplete()
+                return@create
             }
-            Timber.d("create InstanceID finished successfully")
-            it.onComplete()
+            firebaseInstallations.value.id.apply {
+                addOnSuccessListener {
+                    firebaseMessaging.value.token.apply {
+                        addOnSuccessListener { emitter.onComplete() }
+                        addOnFailureListener { emitter.tryOnError(it) }
+                    }
+                }
+                addOnFailureListener { emitter.tryOnError(it) }
+            }
         }
             .subscribeOn(Schedulers.io())
     }
+
+    private fun isFirebaseAppInitialized() = try {
+        FirebaseApp.getInstance()
+        true
+    } catch (e: IllegalStateException) {
+        false
+    }
+
 }

@@ -1,11 +1,11 @@
 package com.applicaster.plugin.coppa.pocketwatch.ui
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v4.app.NotificationManagerCompat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.app.NotificationManagerCompat
+import androidx.fragment.app.Fragment
 import com.applicaster.plugin.coppa.pocketwatch.R
 import com.applicaster.plugin.coppa.pocketwatch.ui.ParentGateActivity.Companion.WARNING_SCREEN
 import kotlinx.android.synthetic.main.notification_settings_fragment.*

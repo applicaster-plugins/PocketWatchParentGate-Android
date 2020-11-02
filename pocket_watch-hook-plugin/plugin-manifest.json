@@ -19,8 +19,8 @@
   "screen": true,
   "ui_builder_support": true,
   "dependency_name": "com.applicaster:PocketWatchCoppaHook-Android",
-  "manifest_version": "0.1.14",
-  "dependency_version": "0.1.+",
+  "manifest_version": "0.2.0",
+  "dependency_version": "0.2.+",
   "whitelisted_account_ids": [
     "5d642ecd161adb0008ea8e50"
   ],

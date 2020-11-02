@@ -46,14 +46,14 @@
                 android:gravity="center_horizontal"
                 tools:text="What is eight times seven?" />
 
-            <android.support.design.widget.TextInputLayout
+            <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/problemAnswerLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:theme="@style/answer_theme">
 
-                <android.support.design.widget.TextInputEditText
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/problemAnswer"
                     android:layout_width="match_parent"
                     android:layout_height="53dp"
@@ -63,7 +63,7 @@
                     android:paddingEnd="8dp"
                     android:textColor="@color/main_blue" />
 
-            </android.support.design.widget.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
                 android:id="@+id/error"

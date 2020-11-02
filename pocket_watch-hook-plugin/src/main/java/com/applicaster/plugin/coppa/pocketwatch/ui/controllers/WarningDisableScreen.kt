@@ -1,10 +1,10 @@
 package com.applicaster.plugin.coppa.pocketwatch.ui.controllers
 
 import android.app.Activity
-import android.support.v4.app.NotificationManagerCompat
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.app.NotificationManagerCompat
 import com.applicaster.plugin.coppa.pocketwatch.PocketWatchCoppaHookContract
 import com.applicaster.plugin.coppa.pocketwatch.R
 import com.applicaster.plugin.coppa.pocketwatch.data.service.util.sendBroadcast

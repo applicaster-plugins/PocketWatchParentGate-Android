@@ -1,11 +1,12 @@
 package com.applicaster.plugin.coppa.pocket_watch.sample
 
 import android.os.Bundle
-import android.support.v4.app.FragmentActivity
 import android.widget.Toast
+import androidx.fragment.app.FragmentActivity
 import com.applicaster.plugin.coppa.pocketwatch.ui.controllers.openAppNotificationSettings
 import com.applicaster.plugin_manager.PluginManager
 import com.applicaster.plugin_manager.screen.PluginScreen
+import com.google.firebase.FirebaseApp
 import kotlinx.android.synthetic.main.activity_main.*
 import timber.log.Timber
 
@@ -20,6 +21,7 @@ class MainActivity : FragmentActivity() {
         setContentView(R.layout.activity_main)
 
         Timber.plant(Timber.DebugTree())
+        FirebaseApp.initializeApp(this)
 
         val hookPlugin = PluginManager.getInstance().hookPluginList.first()
         executeOnApplicationReady.setOnClickListener {

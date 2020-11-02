@@ -6,7 +6,7 @@
 
     <application>
         <meta-data android:name="firebase_messaging_auto_init_enabled"
-            android:value="false" />
+            android:value="true" />
 
         <activity
             android:name="com.applicaster.plugin.coppa.pocketwatch.ui.ParentGateActivity"
@@ -18,6 +18,11 @@
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name="com.applicaster.plugin.coppa.pocketwatch.ui.NotificationSettingsActivity"
+            android:theme="@style/PocketWatchCoppaHookTheme"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".util.DebugMessageActivity"
+            android:launchMode="singleInstance"
             android:theme="@style/PocketWatchCoppaHookTheme"
             android:windowSoftInputMode="adjustResize" />
     </application>

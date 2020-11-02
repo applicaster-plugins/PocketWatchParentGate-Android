@@ -2,14 +2,17 @@ package com.applicaster.plugin.coppa.pocketwatch
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.support.v4.app.Fragment
-import android.support.v4.app.NotificationManagerCompat
+import android.content.pm.ApplicationInfo
+import androidx.core.app.NotificationManagerCompat
+import androidx.fragment.app.Fragment
 import com.applicaster.plugin.coppa.pocketwatch.data.service.AccountDataProviderImpl
 import com.applicaster.plugin.coppa.pocketwatch.data.service.FirebasePushService
 import com.applicaster.plugin.coppa.pocketwatch.data.service.util.registerLocalBroadcast
 import com.applicaster.plugin.coppa.pocketwatch.ui.NotificationSettingsActivity
 import com.applicaster.plugin.coppa.pocketwatch.ui.NotificationSettingsFragment
 import com.applicaster.plugin.coppa.pocketwatch.ui.ParentGateActivity
+import com.applicaster.plugin.coppa.pocketwatch.util.DebugMessageActivity
+import com.applicaster.plugin.coppa.pocketwatch.util.DebugUtil
 import com.applicaster.plugin_manager.hook.ApplicationLoaderHookUpI
 import com.applicaster.plugin_manager.hook.HookListener
 import com.applicaster.plugin_manager.screen.PluginScreen
@@ -18,11 +21,9 @@ import timber.log.Timber
 import java.io.Serializable
 import java.util.*
 
+
 class PocketWatchCoppaHookContract : ApplicationLoaderHookUpI, PluginScreen {
 
-
-    //    private var masterSecret: String? = null
-//    private val apiFactory by lazy { ApiFactoryImpl(masterSecret!!) }
     private val firebasePushService by lazy { FirebasePushService() }
     private val accountDataProvider by lazy { AccountDataProviderImpl() }
 
@@ -31,22 +32,19 @@ class PocketWatchCoppaHookContract : ApplicationLoaderHookUpI, PluginScreen {
         const val NOTIFICATIONS_DISABLED = "check_skipped_coppa_key"
     }
 
-    init {
-        if (Timber.treeCount() == 0) Timber.plant(Timber.DebugTree())
-    }
-
     override fun present(
         context: Context?,
         screenMap: HashMap<String, Any>?,
         dataSource: Serializable?,
         isActivity: Boolean
     ) {
+        context?.let { initTimber(it) }
         context?.registerLocalBroadcast(ALL_CHECKS_PASSED) {
             accountDataProvider.parentGatePassed = true
-            firebasePushService.subscribePush().subscribe()
+            subscribePush(null, context)
         }
         context?.registerLocalBroadcast(NOTIFICATIONS_DISABLED) {
-            firebasePushService.unsubscribePush().subscribe()
+            unsubscribePush(null, context)
         }
         if (isActivity) {
             NotificationSettingsActivity.launch(context!!)
@@ -63,43 +61,80 @@ class PocketWatchCoppaHookContract : ApplicationLoaderHookUpI, PluginScreen {
     }
 
     override fun executeOnStartup(context: Context, listener: HookListener) {
+        initTimber(context)
         Timber.d("executeOnStartup")
         listener.onHookFinished()
     }
 
     @SuppressLint("CheckResult")
     override fun executeOnApplicationReady(context: Context, listener: HookListener) {
+        initTimber(context)
         Timber.d("executeOnApplicationReady")
         if (!NotificationManagerCompat.from(context).areNotificationsEnabled()) {
-            firebasePushService.unsubscribePush()
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ listener.onHookFinished() }, {
-                    Timber.i(it)
-                    listener.onHookFinished()
-                })
+            firebasePushService.unsubscribePush().subscribe()
             accountDataProvider.parentGatePassed = false
         } else if (accountDataProvider.parentGatePassed) {
             listener.onHookFinished()
         } else {
             context.registerLocalBroadcast(ALL_CHECKS_PASSED) {
                 accountDataProvider.parentGatePassed = true
-                firebasePushService.subscribePush()
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe({ listener.onHookFinished() }, {
-                        Timber.i(it)
-                        listener.onHookFinished()
-                    })
+                subscribePush(listener, context)
             }
             context.registerLocalBroadcast(NOTIFICATIONS_DISABLED) {
                 accountDataProvider.parentGatePassed = false
-                firebasePushService.unsubscribePush()
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe({ listener.onHookFinished() }, {
-                        Timber.i(it)
-                        listener.onHookFinished()
-                    })
+                unsubscribePush(listener, context)
             }
             ParentGateActivity.launch(context)
+        }
+    }
+
+    private fun initTimber(context: Context) {
+        if (DebugUtil.isDebug(context)) {
+            if (Timber.treeCount() == 0) Timber.plant(Timber.DebugTree())
+        }
+    }
+
+    @SuppressLint("CheckResult")
+    private fun subscribePush(listener: HookListener?, context: Context) {
+        firebasePushService.subscribePush()
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(
+                {
+                    showMessage(context, "Firebase push subscribed successfully")
+                    listener?.onHookFinished()
+                },
+                {
+                    showMessage(context, "Firebase push subscribe failed")
+                    listener?.onHookFinished()
+                }
+            )
+    }
+
+    @SuppressLint("CheckResult")
+    private fun unsubscribePush(listener: HookListener?, context: Context) {
+        firebasePushService.unsubscribePush()
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(
+                {
+                    showMessage(context, "Firebase push unsubscribed successfully")
+                    listener?.onHookFinished()
+                },
+                {
+                    showMessage(context, "Firebase push unsubscribe failed")
+                    listener?.onHookFinished()
+                }
+            )
+    }
+
+    private fun showMessage(context: Context, message: String) {
+        if (DebugUtil.isDebug(context)) {
+            try {
+                DebugMessageActivity.launch(context, message)
+                Timber.d(message)
+            } catch (throwable: Throwable) {
+                Timber.e(throwable)
+            }
+
         }
     }
 
