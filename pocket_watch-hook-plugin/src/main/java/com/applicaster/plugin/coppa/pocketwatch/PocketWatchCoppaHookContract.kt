@@ -2,6 +2,7 @@ package com.applicaster.plugin.coppa.pocketwatch
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.os.Handler
 import androidx.core.app.NotificationManagerCompat
 import androidx.fragment.app.Fragment
 import com.applicaster.plugin.coppa.pocketwatch.data.service.AccountDataProviderImpl
@@ -25,6 +26,7 @@ class PocketWatchCoppaHookContract : ApplicationLoaderHookUpI, PluginScreen {
 
     private val firebasePushService by lazy { FirebasePushService() }
     private val accountDataProvider by lazy { AccountDataProviderImpl() }
+    private val handler = Handler()
 
     companion object {
         const val ALL_CHECKS_PASSED = "all_checks_passed_coppa_key"
@@ -99,13 +101,13 @@ class PocketWatchCoppaHookContract : ApplicationLoaderHookUpI, PluginScreen {
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(
                 {
-                    showMessage(context, "Firebase push subscribed successfully")
                     listener?.onHookFinished()
+                    showMessage(context, "Firebase push subscribed successfully")
                 },
                 {
+                    listener?.onHookFinished()
                     Timber.e(it)
                     showMessage(context, "Firebase push subscribe failed")
-                    listener?.onHookFinished()
                 }
             )
     }
@@ -116,20 +118,20 @@ class PocketWatchCoppaHookContract : ApplicationLoaderHookUpI, PluginScreen {
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(
                 {
-                    showMessage(context, "Firebase push unsubscribed successfully")
                     listener?.onHookFinished()
+                    showMessage(context, "Firebase push unsubscribed successfully")
                 },
                 {
+                    listener?.onHookFinished()
                     Timber.e(it)
                     showMessage(context, "Firebase push unsubscribe failed")
-                    listener?.onHookFinished()
                 }
             )
     }
 
     private fun showMessage(context: Context, message: String) {
         if (DebugUtil.isDebug(context)) {
-            DebugMessageActivity.launch(context, message)
+            handler.postDelayed({ DebugMessageActivity.launch(context, message) }, 1000)
             Timber.d(message)
         }
     }

@@ -2,6 +2,8 @@ package com.applicaster.plugin.coppa.pocketwatch.util
 
 import android.content.Context
 import android.content.Intent
+import android.content.Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS
+import android.content.Intent.FLAG_ACTIVITY_NEW_TASK
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.applicaster.plugin.coppa.pocketwatch.R
