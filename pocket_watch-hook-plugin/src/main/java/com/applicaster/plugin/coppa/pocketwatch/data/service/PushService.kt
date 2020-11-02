@@ -5,6 +5,7 @@ import com.google.firebase.installations.FirebaseInstallations
 import com.google.firebase.messaging.FirebaseMessaging
 import io.reactivex.Completable
 import io.reactivex.schedulers.Schedulers
+import timber.log.Timber
 
 interface PushService {
     fun unsubscribePush(): Completable
@@ -21,6 +22,7 @@ class FirebasePushService : PushService {
     override fun unsubscribePush(): Completable {
         return Completable.create { emitter ->
             if (isFirebaseAppInitialized().not()) {
+                Timber.d("unsubscribePush Firebase not initialized")
                 emitter.onComplete()
                 return@create
             }
@@ -40,6 +42,7 @@ class FirebasePushService : PushService {
     override fun subscribePush(): Completable {
         return Completable.create { emitter ->
             if (isFirebaseAppInitialized().not()) {
+                Timber.d("subscribePush Firebase not initialized")
                 emitter.onComplete()
                 return@create
             }

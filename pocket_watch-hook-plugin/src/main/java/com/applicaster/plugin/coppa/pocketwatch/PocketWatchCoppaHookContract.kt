@@ -2,7 +2,6 @@ package com.applicaster.plugin.coppa.pocketwatch
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.content.pm.ApplicationInfo
 import androidx.core.app.NotificationManagerCompat
 import androidx.fragment.app.Fragment
 import com.applicaster.plugin.coppa.pocketwatch.data.service.AccountDataProviderImpl
@@ -104,6 +103,7 @@ class PocketWatchCoppaHookContract : ApplicationLoaderHookUpI, PluginScreen {
                     listener?.onHookFinished()
                 },
                 {
+                    Timber.e(it)
                     showMessage(context, "Firebase push subscribe failed")
                     listener?.onHookFinished()
                 }
@@ -120,6 +120,7 @@ class PocketWatchCoppaHookContract : ApplicationLoaderHookUpI, PluginScreen {
                     listener?.onHookFinished()
                 },
                 {
+                    Timber.e(it)
                     showMessage(context, "Firebase push unsubscribe failed")
                     listener?.onHookFinished()
                 }
@@ -128,13 +129,8 @@ class PocketWatchCoppaHookContract : ApplicationLoaderHookUpI, PluginScreen {
 
     private fun showMessage(context: Context, message: String) {
         if (DebugUtil.isDebug(context)) {
-            try {
-                DebugMessageActivity.launch(context, message)
-                Timber.d(message)
-            } catch (throwable: Throwable) {
-                Timber.e(throwable)
-            }
-
+            DebugMessageActivity.launch(context, message)
+            Timber.d(message)
         }
     }
 
