@@ -131,7 +131,7 @@ class PocketWatchCoppaHookContract : ApplicationLoaderHookUpI, PluginScreen {
 
     private fun showMessage(context: Context, message: String) {
         if (DebugUtil.isDebug(context)) {
-            handler.postDelayed({ DebugMessageActivity.launch(context, message) }, 1000)
+            handler.postDelayed({ DebugMessageActivity.launch(context, message) }, 7000)
             Timber.d(message)
         }
     }
